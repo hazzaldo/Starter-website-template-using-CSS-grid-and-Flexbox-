@@ -1,0 +1,178 @@
+/* The top Nav bar has a bit of white space gap around the border. 
+This is common when working CSS. Sometimes browsers by default have some sort
+of CSS attached to them. In this case in Google Chrome, our body alignment
+already has some predefined CSS classes that are pre-built by Chrome so we
+can remove those and make sure that our margins are zero. */
+
+body {
+    margin: auto 0; /* removes any margins around an element */
+    font-family: Arial;
+}
+
+.zone {
+    /* padding:30px 50px;
+    margin:40px 60px; */
+    cursor:pointer;
+    /* display:inline-block; We don't need this inline-block anymore as we're using flex-box*/
+    color:#FFF;
+    font-size:2em;
+    border-radius:4px;
+    border:1px solid #bbb;
+    transition: all 0.3s linear;
+}
+
+/* NAVIGATION section*/
+.main-nav {
+    display: flex;
+    list-style: none; /* removes bullet points from <li> tags  */
+    font-size: 0.7em;
+    margin: 0; /* remove any margin  */
+}
+
+/* makes the nav bar show even upon scrolling the website down. We give it 100% width to make sure it stretches to the end of the window/view-port */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+/* This is a CSS technique to solve responsiveness for different device screen sizes.
+ It's a CSS technique from the website: https://css-tricks.com/snippets/css/media-queries-for-standard-devices/
+ In this case we're trying to solve the Nav bar responsiveness, as when you make the screen 
+ smaller size the Nav bar menu options become disordered (not responsive). 
+ So using the @media technique in this case we specified that as soon as screen size becomes
+ less than 600px, make the font size smaller and remove any padding which should make all 
+ menu options still fit even when the screen size is squashed. 
+ You can implement @media to make the website responsive for different devices such as
+ mobile devices, tablet, laptop ..etc. Follow the Udemy lesson: https://www.udemy.com/the-complete-web-developer-in-2018/learn/v4/t/lecture/12585506?start=0
+  on how to do this.*/
+@media only screen and (max-width: 600px) {
+    .main-nav {
+        font-size: 0.5em;
+        padding: 0;
+    }
+}
+
+/* push the Contact menu option all the way to the right */
+.push {
+    margin-left: auto;
+}
+
+/* here we're targeting any <li> tags. For the navigation bar we're target the <li> tags and creating padding space between each menu option */
+li {
+    padding: 20px;
+}
+
+a {
+    color: #f5f5f6;
+    text-decoration: none; /* removes underline from text. We're removing underline from anchor elements (such as the ones in the menu bar) */
+}
+
+/* COVER section */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50vh; /* vh This stands for view-port. Rather than using a fixed unit of pixels such as 500px which means that when the view-port(browser window or other device screen) changes size, the element will not be responsive to that particular size. Instead use 'vh' which means how much the element will be resized compared to the view port in percentage. In this case 50vh means the element will always take 50% of the view port size (no matter what the view-port size is), ensuring responsiveness. */
+}
+
+/* reduce the size of the image in the COVER section (the section below the menu bar) as it's too big and overlapping onto the grid section. 
+I tried 100% but it still overlapped with Grid section, so in this case using 'rem' works.*/
+.cover {
+    width: 30rem;
+}
+
+/* Grid section -we use CSS grid here */
+.grid-wrapper {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* if it's less the 350px, it changes the grid to 1 less column */
+}
+
+/* images inside the grid are too large. The common solution for this is to give images width of 100%.
+because each image is wrapped inside a div that has 'box' class, we can say:
+all children of box that are images, make width 100%. Meaning it fills the entire card.  */
+
+.box > img {
+    width: 100%;
+}
+
+.box {
+    background-color: #444;
+    padding: 130px;
+    margin: 20px;
+}
+
+/* footer section - aligning text in the center */
+footer {
+ text-align: center;   
+}
+
+
+.zone:hover {
+    -webkit-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+    -moz-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+    -o-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+    box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+}
+
+/* Anything with box class will tilt a little upon mouse hover */
+.box:hover {
+    -webkit-transform: rotate(-7deg);
+    -moz-transform: rotate(-7deg);
+    -o-transform: rotate(-7deg);
+    transform: rotate(-7deg);
+}
+
+/*https://paulund.co.uk/how-to-create-shiny-css-buttons*/
+/***********************************************************************
+ *  Green Background
+ **********************************************************************/
+.green{
+    background: #56B870; /* Old browsers */
+    background: -moz-linear-gradient(top, #56B870 0%, #a5c956 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#56B870), color-stop(100%,#a5c956)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #56B870 0%,#a5c956 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #56B870 0%,#a5c956 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #56B870 0%,#a5c956 100%); /* IE10+ */
+    background: linear-gradient(top, #56B870 0%,#a5c956 100%); /* W3C */
+}
+
+/***********************************************************************
+ *  Red Background
+ **********************************************************************/
+.red{
+    background: #C655BE; /* Old browsers */
+    background: -moz-linear-gradient(top, #C655BE 0%, #cf0404 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#C655BE), color-stop(100%,#cf0404)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #C655BE 0%,#cf0404 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #C655BE 0%,#cf0404 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #C655BE 0%,#cf0404 100%); /* IE10+ */
+    background: linear-gradient(top, #C655BE 0%,#cf0404 100%); /* W3C */
+}
+
+/***********************************************************************
+ *  Yellow Background
+ **********************************************************************/
+.yellow{
+    background: #F3AAAA; /* Old browsers */
+    background: -moz-linear-gradient(top, #F3AAAA 0%, #febf04 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#F3AAAA), color-stop(100%,#febf04)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #F3AAAA 0%,#febf04 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #F3AAAA 0%,#febf04 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #F3AAAA 0%,#febf04 100%); /* IE10+ */
+    background: linear-gradient(top, #F3AAAA 0%,#febf04 100%); /* W3C */
+}
+
+/***********************************************************************
+ *  Blue Background
+ **********************************************************************/
+.blue{
+    background: #7abcff; /* Old browsers */
+    background: -moz-linear-gradient(top, #7abcff 0%, #60abf8 44%, #4096ee 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7abcff), color-stop(44%,#60abf8), color-stop(100%,#4096ee)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* IE10+ */
+    background: linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* W3C */
+}
