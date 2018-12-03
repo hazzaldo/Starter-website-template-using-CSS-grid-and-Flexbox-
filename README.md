@@ -8,5 +8,6 @@ The purpose of this project is of two reasons. The first, to create a generic st
 * A Cover section (the attention-grabbing section - banners, promotions, main message ...etc) 
 * A Grid section (for main content) 
 * A Footer section. 
+
 This template can be easily built upon, with further content, styling and layout customisation. Built using Flex-box and CSS-Grid - the two latest and best tools for web development layout design (as of 2018-2019). The second reason is to break the myth or misunderstanding that with the recent introduction of CSS-grid tool, many people began to compare CSS-grid vs Flexbox. The truth is, both are great tools that actually can work with and compliment each other. There's no one versus the other. So this project combines both tools and proves that combining both of them produces amazing results.
 Please note, this is by no mean a finished website application, but simply a starter website layout template that skips the tediousness of developing a website layout from scratch, that is also easy to manage, maintain and build upon further content, layouts and styles for rapid web development. I also added a generic image, from a free image resource website, just to demonstrate how easy it is to add content on top of the layout template.
